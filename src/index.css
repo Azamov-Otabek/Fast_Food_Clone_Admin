@@ -1,0 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+:root {
+  --brown: #9E896A;
+  --whiteBrown: #F8EDDD;
+  --black: #000000;
+  --gray: #606060;
+  --blueGray: #FFFEFC;
+  --white: #fff;
+  --slate: rgba(255, 255, 255, 0.26);
+  --slate2: rgba(255, 255, 255, 0.35);
+  --cream: #E6E3E3;
+  --red: #D41A24;
+  --redWhite: rgba(212, 26, 36, 0.12);
+  --orange:#FEA827;
+}
+
+.main__container {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.main__section {
+  width: 100%;
+}
+
+.none {
+  display: none;
+}
+
+.block {
+  display: block;
+}
