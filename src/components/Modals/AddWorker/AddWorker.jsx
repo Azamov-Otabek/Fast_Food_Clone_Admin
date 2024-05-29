@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import "./AddWorker.scss";
 import { useWorkerStore } from "../../../store/WorkersStore/WorkersStore";
+import { toast } from "react-toastify";
 const style = {
   position: "absolute",
   top: "50%",
@@ -27,12 +28,18 @@ export default function AddFood({ open, toggle, editItem }) {
     if (editItem) {
       const res = await updateWorker({...payload, id: editItem?.id});
       if (res?.status === 200) {
-        window.location.reload();
+        toast.success('Worker updated successfully', {autoClose: 1100})
+        setTimeout(() => {
+          window.location.reload();
+        }, 1400);
       }
     } else {
       const res = await postWorker(payload);
       if (res?.status === 201) {
-        window.location.reload();
+        toast.success('Worker added successfully', {autoClose: 1100})
+        setTimeout(() => {
+          window.location.reload();
+        }, 1400);
       }
     }
   };

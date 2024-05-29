@@ -6,6 +6,7 @@ import { useWorkerStore } from "../../../store/WorkersStore/WorkersStore";
 import Upload from "../../../assets/upload.avif";
 import { useProductStore } from "../../../store/ProductStore/ProductStore";
 import { useCategoryStore } from "../../../store/CategoryStore/CategoryStore";
+import { toast } from "react-toastify";
 
 const style = {
   position: "absolute",
@@ -43,12 +44,18 @@ export default function AddCategory({
     if (editItem) {
         const res = await updateCategory({...payload, id: editItem?.id});
         if (res?.status === 200) {
-          window.location.reload();
+          toast.success('Category updated successfully', {autoClose: 1100})
+          settimeout(() =>{
+            window.location.reload()
+          }, 1400)
         }
     } else {
       const res = await addCategory(payload);
       if (res?.status === 201) {
-        window.location.reload();
+        toast.success('Category added successfully', {autoClose: 1100})
+        settimeout(() =>{
+          window.location.reload()
+        }, 1400)
       }
     }
   };

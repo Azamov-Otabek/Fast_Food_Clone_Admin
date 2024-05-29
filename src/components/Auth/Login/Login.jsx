@@ -21,8 +21,10 @@ const Login = ({ switchAuth, setSwitchAuth, notify }) => {
     const res = await LoginOwner(payload)
     console.log(res);
     if (res?.status === 200) {
-      navigate("/home");
-      notify("Logged in")
+      toast.success('Login successful', {autoClose: 1200})
+      setTimeout(() => {
+        navigate("/home");
+      }, 1500);
     }
     sessionStorage.setItem("token", res?.data?.access_token);
     localStorage.setItem("owner_id", res?.data?.owner_id);

@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useWorkerStore } from "../../../store/WorkersStore/WorkersStore";
+import { toast } from "react-toastify";
 const style = {
   position: "absolute",
   top: "50%",
@@ -18,7 +19,10 @@ export default function DeleteWorker({ open, toggle, id }) {
   const removeWorker = async () => {
     const res = await deleteWorker(id);
     if (res?.status === 200) {
-      window.location.reload();
+      toast.success('Worker deleted successfully')
+      setTimeout(() => {
+        window.location.reload();
+      }, 1400);
     }
   };
   return (

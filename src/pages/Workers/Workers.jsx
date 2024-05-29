@@ -4,10 +4,13 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import Navbar from "../../components/Navbar/Navbar";
 import BasicTable from "../../components/Table/Table";
 import AddWorker from "../../components/Modals/AddWorker/AddWorker"
+import { ToastContainer } from "react-toastify";
 const Workers = () => {
   const [addWorker, setAddWorker] = useState(false)
   return (
-    <div className="workers">
+    <>
+    <ToastContainer/>
+      <div className="workers">
       <div className="workers__sidebar">
         <Sidebar />
       </div>
@@ -20,6 +23,7 @@ const Workers = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

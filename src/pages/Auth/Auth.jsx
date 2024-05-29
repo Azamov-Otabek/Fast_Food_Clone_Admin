@@ -11,27 +11,18 @@ const Auth = () => {
       toast.success(text)
     }
   return (
-    <div className="auth">
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-        />
-      <div className="auth__image">
-        <img src={AuthImage} alt="auth" onClick={notify}/>
+    <>
+      <ToastContainer/>
+      <div className="auth">
+        <div className="auth__image">
+          <img src={AuthImage} alt="auth" onClick={notify}/>
       </div>
       <div className="auth__right">
         <Login setSwitchAuth={setSwitchAuth} switchAuth={switchAuth} notify={notify}/>
         <Register switchAuth={switchAuth} setSwitchAuth={setSwitchAuth}/>
       </div>
     </div>
+    </>
   );
 };
 

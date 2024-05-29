@@ -10,6 +10,7 @@ import AddFood from "../../components/Modals/AddFoodModal/AddFoodModal";
 import { useCategoryStore } from "../../store/CategoryStore/CategoryStore";
 import AddCategory from "../../components/Modals/AddCategory/AddCategory";
 import DeleteCategory from "../../components/Modals/DeleteCategory/DeleteCategory";
+import { ToastContainer } from "react-toastify";
 const Home = () => {
   const [activeCategory, setActiveCategory] = useState(1);
   const { getProducts, products} = useProductStore()
@@ -46,6 +47,8 @@ const Home = () => {
     setDeleteID("")
   }
   return (
+     <>
+       <ToastContainer/>
     <div className="home">
       <DeleteModal open={deleteModal} toggle={toggle} id={deleteID}/>
       <DeleteCategory open={deleteCategory} toggle={toggle} id={deleteID}/>
@@ -82,6 +85,7 @@ const Home = () => {
         </div>
       </div>
     </div>
+     </>
   );
 };
 

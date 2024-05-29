@@ -44,10 +44,15 @@ const Register = ({ switchAuth, setSwitchAuth }) => {
     if (res?.status === 200) {
       navigate("/verify")
     }
+
+    if(res?.response){
+      toast.error(res?.response?.message)
+    }
   };
   return (
+   <>
+     <ToastContainer />
     <div className={switchAuth ? "login" : "none"}>
-      <ToastContainer />
       <div className="auth__right-top">
         <div className="auth__logo">
           <img src={Logo} alt="" />
@@ -123,6 +128,7 @@ const Register = ({ switchAuth, setSwitchAuth }) => {
         <button className="auth__btn">Register</button>
       </form>
     </div>
+   </>
   );
 };
 

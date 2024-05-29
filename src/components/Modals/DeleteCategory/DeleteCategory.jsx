@@ -2,6 +2,7 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { useCategoryStore } from "../../../store/CategoryStore/CategoryStore";
+import { toast } from "react-toastify";
 const style = {
   position: "absolute",
   top: "50%",
@@ -18,7 +19,10 @@ export default function DeleteCategory({ open, toggle, id }) {
   const removeCategory = async () => {
     const res = await deleteCategory(id);
     if (res?.status === 200) {
-      window.location.reload();
+      toast.success('Category deleted successfully', {autoClose: 1100})
+      setTimeout(() => {
+        window.location.reload();
+      }, 1400);
     }
   };
   return (

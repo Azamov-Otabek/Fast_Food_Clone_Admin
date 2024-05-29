@@ -5,6 +5,7 @@ import "./AddFoodModal.scss";
 import Upload from "../../../assets/upload.avif";
 import { useProductStore } from "../../../store/ProductStore/ProductStore";
 import { useCategoryStore } from "../../../store/CategoryStore/CategoryStore";
+import { toast } from "react-toastify";
 const style = {
   position: "absolute",
   top: "50%",
@@ -53,12 +54,18 @@ export default function AddFood({ open, toggle, editItem }) {
         console.log(payload);
         const res = await updateProduct({...payload, id: editItem?.id})
         if (res?.status === 200) {
-          window.location.reload()
+          toast.success('Product updated successfully', {autoClose: 1100})
+          setTimeout(() => {
+            window.location.reload()
+          }, 1400);
         }
       } else {
         const res = await addProducts(payload);
         if (res?.status === 201) {
-        window.location.reload()
+          toast.success('Product added successfully', {autoClose: 1100})
+          setTimeout(() => {
+            window.location.reload()
+          }, 1400);
       }
     }
   };

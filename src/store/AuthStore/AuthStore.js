@@ -1,13 +1,14 @@
 import {create} from "zustand"
 import axios from "axios"
+import {toast} from 'react-toastify'
 const baseURL = "https://app.rarebek.uz/v1"
 export const useAuthStore = create((set) => ({ 
     RegisterOwner: async(payload)=> {
         try {
-          const response = axios.post(`${baseURL}/register`, payload)
+          const response = await axios.post(`${baseURL}/register`, payload)
           return response
         } catch (error) {
-            console.log(error);
+            toast.error(error.message)
         }
     },
     VerifyOwner: async(email, code)=> {
@@ -15,7 +16,6 @@ export const useAuthStore = create((set) => ({
           const response = axios.get(`${baseURL}/verification?email=${email}&code=${code}`)
           return response
         } catch (error) {
-            console.log(error);
             return error
         }
     },
