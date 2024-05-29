@@ -47,9 +47,8 @@
 
 .home__foods {
     padding: 24px;
-    @extend %flex_center;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 20px;
 }
 
