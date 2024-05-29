@@ -15,8 +15,8 @@ const Verification = () => {
   const {VerifyOwner} = useAuthStore()
   const Verify = async(e) => {
     e.preventDefault()
-    let email = e.target[0].value
-    let code = e.target[1].value
+    let email = JSON.parse(localStorage.getItem("email"))
+    let code = e.target[0].value
     const res = await VerifyOwner(email, code)
     console.log(res);
     sessionStorage.setItem("token", res?.data?.access_token)
@@ -35,10 +35,6 @@ const Verification = () => {
           <label className="form__title">
             Verification code sent to your email
           </label>
-          <div className="form__input">
-            <label htmlFor="username">Email</label>
-            <input type="text" id="username" placeholder="Enter your Email" />
-          </div>
           <div className="form__input">
             <IoEyeOff
               className={type ? "auth__eye" : "none"}

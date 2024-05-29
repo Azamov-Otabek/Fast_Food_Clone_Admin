@@ -38,6 +38,7 @@ const Register = ({ switchAuth, setSwitchAuth }) => {
       password: e.target[3].value,
       tax: 2,
     };
+    localStorage.setItem("email", JSON.stringify(e.target[1].value))
     const res = await RegisterOwner(payload)
     console.log(res)
     if (res?.status === 200) {

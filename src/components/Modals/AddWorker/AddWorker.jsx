@@ -22,9 +22,8 @@ export default function AddFood({ open, toggle, editItem }) {
       full_name: e.target[0].value ? e.target[0].value : editItem?.full_name,
       login_key: e.target[1].value ? e.target[1].value : editItem?.login_key,
       password: e.target[2].value ? e.target[2].value : editItem?.password,
-      owner_id: localStorage.getItem("owner_id"),
+      owner_id: localStorage.getItem('owner_id')
     };
-    console.log(payload);
     if (editItem) {
       const res = await updateWorker({...payload, id: editItem?.id});
       if (res?.status === 200) {
