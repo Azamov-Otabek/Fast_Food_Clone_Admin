@@ -39,7 +39,7 @@ export default function AddCategory({
     let payload = {
       image: image ? image : editItem?.image,
       name: e.target[1].value ? e.target[1].value : editItem?.name,
-      owner_id: JSON.parse(localStorage.getItem("owner_id")),
+      owner_id: localStorage.getItem("owner_id"),
     };
     if (editItem) {
         const res = await updateCategory({...payload, id: editItem?.id});
