@@ -30,7 +30,7 @@ const Navbar = ({ setAddCategory, setOpenModal }) => {
   return (
     <nav className="navbar">
       <div className="navbar__left">
-        <h1 className="navbar__title">Welcome, Tony 👋</h1>
+        <h1 className="navbar__title">Welcome, {localStorage.getItem('owner_name')} 👋</h1>
         <p className="navbar__subtitle">Discover whatever you need</p>
       </div>
       <div className="navbar__search">

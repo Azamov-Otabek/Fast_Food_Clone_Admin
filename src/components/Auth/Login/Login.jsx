@@ -19,6 +19,7 @@ const Login = ({ switchAuth, setSwitchAuth, notify }) => {
       password: e.target[1].value,
     };
     const res = await LoginOwner(payload)
+    localStorage.setItem("owner_name", res?.data?.owner_name)
     console.log(res);
     if (res?.status === 200) {
       toast.success('Login successful', {autoClose: 1200})
