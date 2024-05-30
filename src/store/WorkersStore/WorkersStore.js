@@ -5,7 +5,7 @@ export const useWorkerStore = create((set) => ({
     workers: [],
     getWorkers: async()=> {
         try {
-            const owner_id = localStorage.getItem("owner_id")
+            const owner_id = JSON.parse(localStorage.getItem("owner_id"))
           const response = axiosClient.get(`/workers/get/1/12/${owner_id}`)
           set({workers: response?.data?.all_workers})
           return response

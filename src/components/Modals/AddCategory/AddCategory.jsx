@@ -39,23 +39,19 @@ export default function AddCategory({
     let payload = {
       image: image ? image : editItem?.image,
       name: e.target[1].value ? e.target[1].value : editItem?.name,
-      owner_id: localStorage.getItem("owner_id"),
+      owner_id: JSON.parse(localStorage.getItem("owner_id")),
     };
     if (editItem) {
         const res = await updateCategory({...payload, id: editItem?.id});
-        if (res?.status === 200) {
+        if (res?.status === 201) {
           toast.success('Category updated successfully', {autoClose: 1100})
-          settimeout(() =>{
-            window.location.reload()
-          }, 1400)
+          window.location.reload()
         }
     } else {
       const res = await addCategory(payload);
       if (res?.status === 201) {
         toast.success('Category added successfully', {autoClose: 1100})
-        settimeout(() =>{
-          window.location.reload()
-        }, 1400)
+        window.location.reload()
       }
     }
   };
