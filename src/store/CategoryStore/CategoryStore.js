@@ -6,9 +6,10 @@ export const useCategoryStore = create((set) => ({
     try {
       let payload = {
         limit: 99,
-        owner_id: JSON.parse(localStorage.getItem("owner_id")),
+        owner_id: (localStorage.getItem("owner_id")),
         page: 1,
       };
+      console.log(payload)
       const response = axiosClient.post(`/category/getall`, payload);
       return response;
     } catch (error) {
